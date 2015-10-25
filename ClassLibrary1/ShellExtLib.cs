@@ -175,7 +175,8 @@ namespace CSShellExtContextMenuHandler
             // Remove the key HKCR\<File Type>\shellex\ContextMenuHandlers\{<CLSID>}.
             string keyName = string.Format(@"{0}\shellex\ContextMenuHandlers\{1}",
                 fileType, clsid.ToString("B"));
-            Registry.ClassesRoot.DeleteSubKeyTree(keyName, false);
+            //Registry.ClassesRoot.DeleteSubKeyTree(keyName, false);
+            Registry.ClassesRoot.DeleteSubKeyTree(keyName);
         }
     }
 

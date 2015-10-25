@@ -24,10 +24,10 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 //using CSShellExtContextMenuHandler.Properties;
-using System.Drawing;
+//using System.Drawing;
 using System.Collections.Generic;
 using System.IO;
-using System.Collections.Specialized;
+//using System.Collections.Specialized;
 using System.Linq;
 
 
@@ -231,6 +231,7 @@ namespace CSShellExtContextMenuHandler
             if (this.selectedFiles.Count == 1)
             {
                 mii2.dwTypeData = this.menuText + " (1 Item)";
+                return WinError.MAKE_HRESULT(WinError.SEVERITY_SUCCESS, 0, 0);//there is no need to merge 1 folder...
             }
             if (this.selectedFiles.Count == 16)
             {
@@ -264,6 +265,7 @@ namespace CSShellExtContextMenuHandler
             string lcs = commomFileName(this.selectedFiles);
             if (lcs.Length < lowerbound)
                 lcs = "New Folder";
+            
             string p = Path.GetDirectoryName(this.selectedFiles[0]);
             string fullpathname = p + "\\" + lcs;
             if (Directory.Exists(fullpathname))
@@ -284,13 +286,14 @@ namespace CSShellExtContextMenuHandler
                 if (Directory.Exists(fname))
                 {
                     //System.Windows.Forms.MessageBox.Show("Dir:" + fname);
+                    //System.Windows.Forms.MessageBox.Show("Dir:" + dest);
                     Directory.Move(fname, dest);
                 }
 
             }
             //System.Windows.Forms.MessageBox.Show(filelists);
         }
-        private string commomFileName(List<string> fullfilenames)
+        public string commomFileName(List<string> fullfilenames)
         {
             //strip path
             List<string> filenames = new List<string>();
@@ -304,7 +307,7 @@ namespace CSShellExtContextMenuHandler
 
             foreach (string filename in filenames)
             {
-                for(int i=1;i<filename.Length;i++)
+                for(int i=1;i<=filename.Length;i++)
                 {
                     string substr = filename.Substring(0, i);
 
@@ -326,7 +329,7 @@ namespace CSShellExtContextMenuHandler
                 }
             }
             
-            return bestString;
+            return bestString.Trim();
         }
         
         public void GetCommandString(
