@@ -233,7 +233,7 @@ namespace CSShellExtContextMenuHandler
                 mii2.dwTypeData = this.menuText + " (1 Item)";
                 return WinError.MAKE_HRESULT(WinError.SEVERITY_SUCCESS, 0, 0);//there is no need to merge 1 folder...
             }
-            if (this.selectedFiles.Count == 16)
+            if (this.selectedFiles.Count >= 16)
             {
                 mii2.dwTypeData = this.menuText + " (16 or More Items)";
             }
