@@ -5,12 +5,5 @@ A shell extension that moves selected files into a new folder.
 Microsoft windows 10, windows 8, windows 7
 
 # Install
-1. Download and unzip [installFolderizer.zip](http://oz.nthu.edu.tw/~u932014/installFolderizer.zip).
-2. Depending on your OS version, right click on either *install_win7[.bat]* or *install_win8_win10[.bat]*; in the context menu, click *run as administrator*.
-3. Enjoy.
-
-
-# Uninstall
-1. Download and unzip [installFolderizer.zip](http://oz.nthu.edu.tw/~u932014/installFolderizer.zip).
-2. Depending on your OS version, right click on either *uninstall_win7[.bat]* or *uninstall_win8_win10[.bat]*; in the context menu, click *run as administrator*.
-3. Bye  T.T 
+1. Download and unzip [installFolderizer.zip].
+2. Run setup.exe (It will install missing .Net framework if needed.)
